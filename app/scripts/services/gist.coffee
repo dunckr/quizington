@@ -1,4 +1,4 @@
-class Gist extends Request
+class Gist #extends Request
 
   constructor: (@$http, @$q) ->
 
@@ -16,4 +16,4 @@ class Gist extends Request
     # deferred = $q.defer()
 
 angular.module('quizingtonApp')
-  .factory 'spreadsheet', ($http,$q) -> new Gist($http,$q)
+  .factory 'gist', ($http,$q) -> new Gist($http,$q)

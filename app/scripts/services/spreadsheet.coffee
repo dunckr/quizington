@@ -4,10 +4,16 @@ class Spreadsheet
 
   get: (id) ->
 
-    url = 'https://docs.google.com/document/d/1z2RfKcH6ZzkbR_3QQrWgoxWMV66qMG0qQxkbnunrRpw/pub?alt=json-in-script&callback=?&gid=0'
+    # WORKING:
+    url = 'https://spreadsheets.google.com/tq?key=0AlRp2ieP7izLdGFNOERTZW0xLVpROFc3X3FJQ2tSb2c&gid=0&tqx=responseHandler%3Asheetrock_callback_0'
+
     request = @$http.jsonp(url)
     request.then (response) ->
       console.log 'here'
+      console.log response
+
+  sheetrock_callback_0: (response) ->
+      console.log 'in sheetrock_callback_0'
       console.log response
 
     # url = 'https://spreadsheets.google.com/feeds/cells/0AtNU_KBGgbVfdEdqM1VQUTlkME1sNkF1aDZlcW03TWc/od6/public/basic?alt=json-in-script'
