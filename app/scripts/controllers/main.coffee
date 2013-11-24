@@ -2,10 +2,6 @@ class MainCtrl
 
   constructor: (@$scope,@spreadsheet,@$http) ->
 
-    window.sheetrock_callback_0 = (data) ->
-      console.log 'adfasdf'
-      console.log data
-
     @spreadsheet.get()
 
 

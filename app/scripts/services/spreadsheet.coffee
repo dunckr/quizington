@@ -5,16 +5,17 @@ class Spreadsheet
   get: (id) ->
 
     # WORKING:
-    url = 'https://spreadsheets.google.com/tq?key=0AlRp2ieP7izLdGFNOERTZW0xLVpROFc3X3FJQ2tSb2c&gid=0&tqx=responseHandler%3Asheetrock_callback_0'
+    # url = 'https://spreadsheets.google.com/tq?key=0AlRp2ieP7izLdGFNOERTZW0xLVpROFc3X3FJQ2tSb2c&gid=0&tqx=responseHandler%3Asuccess'
 
-    request = @$http.jsonp(url)
-    request.then (response) ->
-      console.log 'here'
-      console.log response
+    url = 'https://spreadsheets.google.com/tq?key=0AlRp2ieP7izLdGFNOERTZW0xLVpROFc3X3FJQ2tSb2c&gid=0&tqx=responseHandler%3AJSON_CALLBACK'
+    @$http.jsonp(url)
+      .success (json) ->
+        console.log 'success!!!!'
 
-  sheetrock_callback_0: (response) ->
-      console.log 'in sheetrock_callback_0'
-      console.log response
+
+    window.success = (data) ->
+      console.log 'adfasfd'
+      console.log data
 
     # url = 'https://spreadsheets.google.com/feeds/cells/0AtNU_KBGgbVfdEdqM1VQUTlkME1sNkF1aDZlcW03TWc/od6/public/basic?alt=json-in-script'
     # expectedKey = "0Ago31JQPZxZrdHF2bWNjcTJFLXJ6UUM5SldEakdEaXc";
