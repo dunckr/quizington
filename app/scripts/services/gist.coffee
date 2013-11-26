@@ -3,18 +3,15 @@ class Gist #extends Request
   constructor: (@$http, @$q) ->
 
   get: (id) ->
-    # deferred = $q.defer()
+    @_request @_constructUrl id
 
-
-    request = @$http.jsonp("https://api.github.com/gists/2439102?callback=JSON_CALLBACK")
-    request.then (response) ->
-      console.log 'here'
-      console.log response
-
+  _request: (url) ->
+    deferred = @$q.defer()
+    @$http.jsonp(url).success (data) -> deferred.resolve data
     deferred.promise
-    # failure ->deferred.reject("Gist not found")
-    # success -> deferred.resolve(json)
-    # deferred = $q.defer()
+
+  _constructUrl: (id) ->
+    "https://api.github.com/gists/#{id}?callback=JSON_CALLBACK"
 
 angular.module('quizingtonApp')
   .factory 'gist', ($http,$q) -> new Gist($http,$q)
