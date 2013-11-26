@@ -2,7 +2,7 @@ class MainCtrl
 
   constructor: (@$scope,@spreadsheet,@$http) ->
 
-    @spreadsheet.get()
+    @$scope.data = @spreadsheet.get()
 
 
 

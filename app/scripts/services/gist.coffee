@@ -11,6 +11,7 @@ class Gist #extends Request
       console.log 'here'
       console.log response
 
+    deferred.promise
     # failure ->deferred.reject("Gist not found")
     # success -> deferred.resolve(json)
     # deferred = $q.defer()
