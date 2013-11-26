@@ -1,14 +1,11 @@
-'use strict'
-
-describe 'Service: Spreadsheet', () ->
-
-  # load the service's module
+describe 'Service: Spreadsheet', ->
   beforeEach module 'quizingtonApp'
+  s  = null
+  beforeEach inject (_spreadsheet_) ->
+    s = _spreadsheet_
 
-  # instantiate service
-  Spreadsheet = {}
-  beforeEach inject (_Spreadsheet_) ->
-    Spreadsheet = _Spreadsheet_
+  it 'should construct url', ->
+    expect(s._constructUrl('asdf')).toEqual 'SUCCESS'
 
-  it 'should do something', () ->
-    expect(!!Spreadsheet).toBe true
+  it 'should construct url', ->
+    expect(s.get('asdf')).toEqual 'SUCCESS'

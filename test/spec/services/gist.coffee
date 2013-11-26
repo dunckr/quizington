@@ -1,14 +1,14 @@
-'use strict'
-
-describe 'Service: Gist', () ->
-
-  # load the service's module
+describe 'Service: Gist', (Gist) ->
   beforeEach module 'quizingtonApp'
+  gist = $http = null
 
-  # instantiate service
-  Gist = {}
-  beforeEach inject (_Gist_) ->
-    Gist = _Gist_
+  # beforeEach inject (_$httpBackend_,_$q_) ->
+  # beforeEach inject (_Gist_,_Request_,_$httpBackend_,_$q_) ->
+  #   $q = _$q_
+  #   $http = _$httpBackend_
+  #   Request = _Request_
+  #   Gist = _Gist_
+    # gist = new Gist $http, $q
 
-  it 'should do something', () ->
-    expect(!!Gist).toBe true
+  it 'should be defined', ->
+    expect(gist).toBeDefined()

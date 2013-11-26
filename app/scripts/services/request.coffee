@@ -4,7 +4,6 @@ angular.module('quizingtonApp')
     class Request
 
       constructor: (@$http, @$q) ->
-        console.log 'request'
 
       get: (id) ->
         @_request @_constructUrl id
