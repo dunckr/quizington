@@ -1,11 +1,11 @@
 describe 'Service: Spreadsheet', ->
   beforeEach module 'quizingtonApp'
-  s  = null
-  beforeEach inject (_spreadsheet_) ->
-    s = _spreadsheet_
+  spreadsheet = null
+  beforeEach inject (_spreadsheet_,_$http_,_$q_) ->
+    $q = _$q_
+    deferred = $q.defer()
+    $http = _$http_
+    spreadsheet = _spreadsheet_
 
   it 'should construct url', ->
-    expect(s._constructUrl('asdf')).toEqual 'SUCCESS'
-
-  it 'should construct url', ->
-    expect(s.get('asdf')).toEqual 'SUCCESS'
+    expect(spreadsheet._constructUrl('test')).toEqual 'https://spreadsheets.google.com/tq?key=test&gid=0&tqx=responseHandler%3AJSON_CALLBACK'

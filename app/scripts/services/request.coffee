@@ -11,6 +11,7 @@ angular.module('quizingtonApp')
       _request: (url) ->
         deferred = @$q.defer()
         @$http.jsonp(url).success (data) -> deferred.resolve data
+        # @$http.jsonp(url)
         deferred.promise
 
       _constructUrl: (id) ->

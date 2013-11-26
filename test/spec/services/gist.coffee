@@ -1,14 +1,8 @@
-describe 'Service: Gist', (Gist) ->
+describe 'Service: Gist', ->
   beforeEach module 'quizingtonApp'
-  gist = $http = null
+  gist = null
+  beforeEach inject (_gist_) ->
+    gist = _gist_
 
-  # beforeEach inject (_$httpBackend_,_$q_) ->
-  # beforeEach inject (_Gist_,_Request_,_$httpBackend_,_$q_) ->
-  #   $q = _$q_
-  #   $http = _$httpBackend_
-  #   Request = _Request_
-  #   Gist = _Gist_
-    # gist = new Gist $http, $q
-
-  it 'should be defined', ->
-    expect(gist).toBeDefined()
+  it 'should construct url', ->
+    expect(gist._constructUrl('test')).toEqual 'https://api.github.com/gists/test?callback=JSON_CALLBACK'

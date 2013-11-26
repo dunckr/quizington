@@ -2,11 +2,14 @@ describe 'Service: Request', ->
   beforeEach module 'quizingtonApp'
   request = $http = null
 
-  beforeEach inject (_Request_,_$httpBackend_,_$q_) ->
+  beforeEach inject (_Request_,_$http_,_$q_) ->
     $q = _$q_
-    $http = _$httpBackend_
+    deferred = $q.defer()
+    $http = _$http_
     Request = _Request_
     request = new Request $http, $q
 
-  it 'should be defined', ->
-    expect(request).toBeDefined()
+  it 'should construct the url', ->
+    expect(request._constructUrl('')).toEqual ''
+
+  it 'should get data', ->
