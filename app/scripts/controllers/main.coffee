@@ -2,7 +2,7 @@ class MainCtrl
 
   constructor: (@$scope,@spreadsheet,@gist) ->
 
-    id = '0AlRp2ieP7izLdGFNOERTZW0xLVpROFc3X3FJQ2tSb2c'
+    id = '0AtNU_KBGgbVfdEdqM1VQUTlkME1sNkF1aDZlcW03TWc'
     @$scope.data = @spreadsheet.get id
 
     id = '2439102'

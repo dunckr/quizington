@@ -10,9 +10,13 @@ angular.module('quizingtonApp')
 
       _request: (url) ->
         deferred = @$q.defer()
-        @$http.jsonp(url).success (data) -> deferred.resolve data
-        # @$http.jsonp(url)
+        @$http.jsonp(url).success (data) =>
+          deferred.resolve @_process data
         deferred.promise
+
+      _process: (data) ->
+        console.log data
+        data
 
       _constructUrl: (id) ->
         ''

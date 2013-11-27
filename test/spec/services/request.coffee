@@ -4,7 +4,6 @@ describe 'Service: Request', ->
 
   beforeEach inject (_Request_,_$http_,_$q_) ->
     $q = _$q_
-    deferred = $q.defer()
     $http = _$http_
     Request = _Request_
     request = new Request $http, $q
@@ -13,3 +12,6 @@ describe 'Service: Request', ->
     expect(request._constructUrl('')).toEqual ''
 
   it 'should get data', ->
+    data = '123'
+    spyOn(request, '_request').andReturn data
+    expect(request.get('')).toEqual data
