@@ -1,7 +1,8 @@
 describe 'Service: Gist', ->
   beforeEach module 'quizingtonApp'
-  gist = null
-  beforeEach inject (_gist_) ->
+  gist = File = null
+  beforeEach inject (_gist_,_File_) ->
+    File = _File_
     gist = _gist_
 
   it 'should construct url', ->

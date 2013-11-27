@@ -1,6 +1,10 @@
 angular.module('quizingtonApp')
-  .factory 'file', ->
+  .factory 'File', ->
 
     class File
 
-      constructor: () ->
+      constructor: (@data) ->
+
+      toJSON: ->
+        for name,file of @data.data.files
+          return file.content

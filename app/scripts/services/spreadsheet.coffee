@@ -10,8 +10,6 @@ angular.module('quizingtonApp')
 
       _process: (data) ->
         table = new Table data
-        s = table.toJSON()
-        console.log s
-        s
+        table.toJSON()
 
     new Spreadsheet($http,$q)

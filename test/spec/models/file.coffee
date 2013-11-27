@@ -7,9 +7,12 @@ describe 'Service: File', () ->
         'file1':
           content: 'JSON'
 
-  beforeEach inject (_file_) ->
-    File = _file_
+  beforeEach inject (_File_) ->
+    File = _File_
     file = new File response
 
-  it 'should do something', () ->
-    expect(!!file).toBe true
+  it 'should have data', ->
+    expect(file.data).toBe response
+
+  it 'should flatten the response', ->
+    expect(file.toJSON()).toEqual 'JSON'

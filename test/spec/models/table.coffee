@@ -24,7 +24,7 @@ describe 'Service: Table', () ->
     Table = _Table_
     table = new Table response
 
-  it 'should have data', () ->
+  it 'should have data', ->
     expect(table.data).toEqual response
 
   it 'should convert to json', ->

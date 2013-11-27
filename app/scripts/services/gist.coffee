@@ -1,5 +1,5 @@
 angular.module('quizingtonApp')
-  .factory 'gist', (Request,$http,$q) ->
+  .factory 'gist', (Request,File,$http,$q) ->
 
     class Gist extends Request
 
@@ -7,5 +7,9 @@ angular.module('quizingtonApp')
 
       _constructUrl: (id) ->
         "https://api.github.com/gists/#{id}?callback=JSON_CALLBACK"
+
+      _process: (data) ->
+        file = new File data
+        file.toJSON()
 
     new Gist $http, $q
