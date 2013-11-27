@@ -9,7 +9,7 @@ describe 'Service: File', () ->
 
   beforeEach inject (_file_) ->
     File = _file_
-    tabel = new File response
+    file = new File response
 
   it 'should do something', () ->
     expect(!!file).toBe true

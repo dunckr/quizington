@@ -11,6 +11,7 @@ describe 'Service: Table', () ->
             ,
               v: 'Capitals'
             ]
+        ,
           c:
             [
               v: 'A'
@@ -19,9 +20,14 @@ describe 'Service: Table', () ->
             ]
         ]
 
-  beforeEach inject (_table_) ->
-    Table = _table_
-    tabel = new Table()
+  beforeEach inject (_Table_) ->
+    Table = _Table_
+    table = new Table response
 
-  it 'should do something', () ->
-    expect(!!table).toBe true
+  it 'should have data', () ->
+    expect(table.data).toEqual response
+
+  it 'should convert to json', ->
+    expect(table.toJSON()).toEqual
+      Countries: 'Capitals'
+      A: 'B'

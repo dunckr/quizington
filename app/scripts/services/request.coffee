@@ -15,7 +15,6 @@ angular.module('quizingtonApp')
         deferred.promise
 
       _process: (data) ->
-        console.log data
         data
 
       _constructUrl: (id) ->
