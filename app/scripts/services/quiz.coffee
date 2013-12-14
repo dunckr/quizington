@@ -1,15 +1,26 @@
-'use strict'
+class Quiz
+
+  constructor: () ->
+    console.log 'constructed'
+
+  submit: ->
+    console.log 'submitting'
+    true
 
 angular.module('quizingtonApp')
-  .factory 'quiz', [() ->
-    # Service logic
-    # ...
+  .factory 'quiz', () -> new Quiz()
 
-    meaningOfLife = 42
 
-    # Public API here
-    {
-      someMethod: () ->
-        meaningOfLife
-    }
-  ]
+# angular.module('quizingtonApp')
+#   .factory 'Quiz', () ->
+
+#     class Quiz
+
+#       constructor: () ->
+#         console.log 'constructed'
+
+#       submit: ->
+#         console.log 'inside the submit'
+#         true
+
+#     new Quiz()

@@ -1,14 +1,12 @@
-'use strict'
-
-describe 'Service: Quiz', () ->
-
-  # load the service's module
+describe 'Service: Quiz', ->
   beforeEach module 'quizingtonApp'
+  quiz = null
 
-  # instantiate service
-  Quiz = {}
-  beforeEach inject (_Quiz_) ->
-    Quiz = _Quiz_
+  beforeEach inject (_quiz_) ->
+    quiz = _quiz_
 
-  it 'should do something', () ->
-    expect(!!Quiz).toBe true
+  it 'should construct the url', ->
+    expect(quiz).toBeDefined()
+
+  it 'should be able to submit', ->
+    expect(quiz.submit()).toBe true

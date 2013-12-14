@@ -1,12 +1,13 @@
 class InputCtrl
 
-  constructor: (@$scope,@quiz) ->
+  constructor: (@$scope,quiz) ->
+    quiz.submit()
     @attachScope()
 
   attachScope: ->
     @$scope.submit = ->
       console.log 'here'
-      @quiz.request @$scope.id
+      # console.log @quiz
 
 
 angular.module('quizingtonApp')

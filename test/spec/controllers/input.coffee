@@ -1,14 +1,15 @@
 describe 'Controller: InputCtrl', ->
-  controller = $scope = null
+  controller = quiz = $scope = null
 
   beforeEach module 'quizingtonApp'
   beforeEach inject ($controller, _$rootScope_) ->
     $rootScope = _$rootScope_
     $scope = $rootScope.$new()
     quiz =
-      request: jasmine.createSpy()
+      submit: jasmine.createSpy()
     controller = $controller 'InputCtrl',
       $scope: $scope
+      quiz: quiz
 
   it 'should initialize', ->
     expect(controller).toBeDefined()
@@ -16,4 +17,4 @@ describe 'Controller: InputCtrl', ->
   it 'should take in a URL from the user and ', ->
     $scope.url = 'asfdasdf'
     $scope.submit()
-    expect(quiz.request).toHaveBeenCalled()
+    expect(quiz.submit).toHaveBeenCalled()
