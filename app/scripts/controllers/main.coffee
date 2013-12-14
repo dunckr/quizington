@@ -3,10 +3,12 @@ class MainCtrl
   constructor: (@$scope,@spreadsheet,@gist) ->
 
     id = '0AtNU_KBGgbVfdEdqM1VQUTlkME1sNkF1aDZlcW03TWc'
-    @$scope.data = @spreadsheet.get id
+    @spreadsheet.get(id).then (data) =>
+      @$scope.data = data
 
     id = '2439102'
-    @$scope.data2 = @gist.get id
+    @gist.get(id).then (data) =>
+      @$scope.data2 = data
 
 
 angular.module('quizingtonApp')
