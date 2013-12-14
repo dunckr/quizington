@@ -1,14 +1,14 @@
 angular.module('quizingtonApp')
-  .factory 'Request', ($http,$q) ->
+  .factory 'Fetch', ($http,$q) ->
 
-    class Request
+    class Fetch
 
       constructor: (@$http, @$q) ->
 
       get: (id) ->
-        @_request @_constructUrl id
+        @_fetch @_constructUrl id
 
-      _request: (url) ->
+      _fetch: (url) ->
         deferred = @$q.defer()
         @$http.jsonp(url).success (data) =>
           deferred.resolve @_process data

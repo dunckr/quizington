@@ -1,7 +1,7 @@
 angular.module('quizingtonApp')
-  .factory 'gist', (Request,File,$http,$q) ->
+  .factory 'gist', (Fetch,File,$http,$q) ->
 
-    class Gist extends Request
+    class Gist extends Fetch
 
       constructor: (@$http, @$q) ->
 

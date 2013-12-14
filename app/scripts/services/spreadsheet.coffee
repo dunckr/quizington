@@ -1,7 +1,7 @@
 angular.module('quizingtonApp')
-  .factory 'spreadsheet', (Request,Table,$http,$q) ->
+.factory 'spreadsheet', (Fetch,Table,$http,$q) ->
 
-    class Spreadsheet extends Request
+    class Spreadsheet extends Fetch
 
       constructor: (@$http, @$q) ->
 
