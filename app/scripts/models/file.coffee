@@ -7,4 +7,4 @@ angular.module('quizingtonApp')
 
       toJSON: ->
         for name,file of @data.data.files
-          return file.content
+          return angular.toJSON file.content

@@ -6,9 +6,10 @@ class MainCtrl
     @spreadsheet.get(id).then (data) =>
       @$scope.data = data
 
-    id = '2439102'
+    id = '7683567'
     @gist.get(id).then (data) =>
       @$scope.data2 = data
+      console.log data
 
 
 angular.module('quizingtonApp')

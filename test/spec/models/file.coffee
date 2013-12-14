@@ -1,6 +1,6 @@
 describe 'Service: File', () ->
   beforeEach module 'quizingtonApp'
-  file = null
+  file = angular = null
   response =
     data:
       files:
@@ -15,4 +15,6 @@ describe 'Service: File', () ->
     expect(file.data).toBe response
 
   it 'should flatten the response', ->
+    angular =
+      toJSON: jasmine.createSpy().andReturn ''
     expect(file.toJSON()).toEqual 'JSON'
