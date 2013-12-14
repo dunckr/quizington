@@ -15,6 +15,6 @@ describe 'Controller: InputCtrl', ->
     expect(controller).toBeDefined()
 
   it 'should take in a URL from the user and ', ->
-    $scope.url = 'asfdasdf'
+    $scope.url = 'www'
     $scope.submit()
-    expect(quiz.submit).toHaveBeenCalled()
+    expect(quiz.submit).toHaveBeenCalledWith 'www'

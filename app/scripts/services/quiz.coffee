@@ -1,26 +1,14 @@
 class Quiz
 
-  constructor: () ->
-    console.log 'constructed'
+  constructor: ->
 
-  submit: ->
-    console.log 'submitting'
-    true
+  request: (url) ->
+    if @_valid url
+      return url
+    false
+
+  _valid: (url) ->
+    return
 
 angular.module('quizingtonApp')
   .factory 'quiz', () -> new Quiz()
-
-
-# angular.module('quizingtonApp')
-#   .factory 'Quiz', () ->
-
-#     class Quiz
-
-#       constructor: () ->
-#         console.log 'constructed'
-
-#       submit: ->
-#         console.log 'inside the submit'
-#         true
-
-#     new Quiz()
