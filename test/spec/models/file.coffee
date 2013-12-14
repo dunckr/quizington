@@ -13,8 +13,3 @@ describe 'Service: File', () ->
 
   it 'should have data', ->
     expect(file.data).toBe response
-
-  it 'should flatten the response', ->
-    angular =
-      toJSON: jasmine.createSpy().andReturn ''
-    expect(file.toJSON()).toEqual 'JSON'
