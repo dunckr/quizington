@@ -9,6 +9,6 @@ angular.module('quizingtonApp', [
       .when '/:id',
         templateUrl: 'views/main.html'
         controller: 'mainCtrl'
-      .otherwise
-        redirectTo: '/'
+      # .otherwise
+      #   redirectTo: '/'
   ]

@@ -1,11 +1,17 @@
 class Quiz
 
   constructor: ->
+    @url = 'constructed'
 
   request: (url) ->
-    if @_valid url
-      return url
-    false
+    console.log 'we are setting the url in quiz'
+    @url = url
+    # if @_valid url
+    #   return url
+    # false
+
+  get: ->
+    @url
 
   _valid: (url) ->
     return
