@@ -1,6 +1,8 @@
 <h2>main view</h2>
 
-<div ng-bind="url"></div>
+<div ng-bind="id"></div>
+
+<div ng-bind="items"></div>
 
 <!-- <div ng-bind="data"></div>
 
@@ -9,9 +11,7 @@
 </div>
 
  -->
-<div ng-bind="data2"></div>
 
-
-<div ng-repeat="(d,b) in data2 track by $index">
+<div ng-repeat="(d,b) in items track by $index">
   <p>{{d}} {{b}}</p>
 </div>

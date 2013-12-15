@@ -7,9 +7,8 @@ class InputCtrl
   attachScope: ->
     @$scope.request = =>
       console.log 'button pressedd'
-      @quiz.request @$scope.url
-
-      @$location.path '/1'
+      # @quiz.request @$scope.url
+      @$location.path "/#{@$scope.url}"
 
       # if success, then change path to main
       # if fails then err
