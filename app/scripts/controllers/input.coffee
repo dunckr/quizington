@@ -1,17 +1,14 @@
 class InputCtrl
 
-  constructor: (@$scope,@$location,@quiz) ->
+  constructor: (@$scope,@$location) ->
     @$scope.url = '0AtNU_KBGgbVfdEdqM1VQUTlkME1sNkF1aDZlcW03TWc'
     @attachScope()
 
   attachScope: ->
     @$scope.request = =>
-      console.log 'button pressedd'
-      # @quiz.request @$scope.url
-      @$location.path "/#{@$scope.url}"
+      @$location.path "/doc/#{@$scope.url}"
 
-      # if success, then change path to main
-      # if fails then err
+  # validation...
 
 angular.module('quizingtonApp')
-  .controller 'inputCtrl', ['$scope','$location','quiz',InputCtrl]
+  .controller 'inputCtrl', ['$scope','$location',InputCtrl]
