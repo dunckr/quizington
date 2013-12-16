@@ -1,10 +1,10 @@
-'use strict'
+class GistCtrl
+
+  constructor: (@$scope,@$routeParams,@gist) ->
+    @$scope.id = @$routeParams.id
+
+    @gist.get(@$scope.id).then (data) =>
+      @$scope.items = data
 
 angular.module('quizingtonApp')
-  .controller 'GistCtrl', ['$scope', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
-  ]
+  .controller 'gistCtrl', ['$scope','$routeParams','gist',GistCtrl]

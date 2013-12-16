@@ -1,4 +1,4 @@
-ddescribe 'Controller: DocCtrl', () ->
+describe 'Controller: DocCtrl', () ->
   docCtrl = scope = $q = spreadsheet = null
   response = micCheck: '212'
 

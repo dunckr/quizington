@@ -1,19 +1,32 @@
-'use strict'
-
 describe 'Controller: GistCtrl', () ->
+  gistCtrl = scope = $q = gist = null
+  response = micCheck: '212'
 
-  # load the controller's module
   beforeEach module 'quizingtonApp'
-
-  GistCtrl = {}
-  scope = {}
-
-  # Initialize the controller and a mock scope
-  beforeEach inject ($controller, $rootScope) ->
+  beforeEach inject ($controller, _$rootScope_,_$q_) ->
+    $q = _$q_
+    $rootScope = _$rootScope_
     scope = $rootScope.$new()
-    GistCtrl = $controller 'GistCtrl', {
+    $routeParams =
+      id: '123'
+    deferred = $q.defer()
+    deferred.resolve response
+    gist =
+      get: jasmine.createSpy().andReturn deferred.promise
+    gistCtrl = $controller 'GistCtrl',
       $scope: scope
-    }
+      $routeParams: $routeParams
+      gist: gist
 
-  it 'should attach a list of awesomeThings to the scope', () ->
-    expect(scope.awesomeThings.length).toBe 3
+  it 'should initialize', ->
+    expect(gistCtrl).toBeDefined()
+
+  it 'should set the id', ->
+    expect(scope.id).toEqual '123'
+
+  it 'should request the gist', ->
+    expect(gist.get).toHaveBeenCalled()
+
+  it 'should set the items', ->
+    scope.$digest()
+    expect(scope.items).toEqual response
