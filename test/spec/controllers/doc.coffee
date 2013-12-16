@@ -1,32 +1,32 @@
 ddescribe 'Controller: DocCtrl', () ->
-  controller = $scope = $rootScope = $routeParams = null
+  docCtrl = scope = $q = spreadsheet = null
+  response = micCheck: '212'
 
   beforeEach module 'quizingtonApp'
-  beforeEach inject ($controller, _$rootScope_,_$routeParams_,_$q_,_spreadsheet_) ->
-    $routeParams = _$routeParams_
+  beforeEach inject ($controller, _$rootScope_,_$q_) ->
     $q = _$q_
     $rootScope = _$rootScope_
-    $scope = $rootScope.$new()
-
-    spreadsheet = _spreadsheet_
-
+    scope = $rootScope.$new()
+    $routeParams =
+      id: '123'
     deferred = $q.defer()
-    deferred.resolve('somevalue')
-
-    # spyOn(spreadsheet, 'get').andReturn(deferred.promise)
-    spreadsheet.get = jasmine.createSpy().andReturn(deferred.promise)
-    controller = $controller 'DocCtrl',
-      $scope: $scope
+    deferred.resolve response
+    spreadsheet =
+      get: jasmine.createSpy().andReturn deferred.promise
+    docCtrl = $controller 'DocCtrl',
+      $scope: scope
       $routeParams: $routeParams
       spreadsheet: spreadsheet
 
   it 'should initialize', ->
-    expect(controller).toBeDefined()
+    expect(docCtrl).toBeDefined()
 
-  it 'should take id from routeParams', ->
-    $routeParams.id = 'adf'
-    expect($scope.id).toEqual 'ad'
+  it 'should set the id', ->
+    expect(scope.id).toEqual '123'
 
-  it 'should', ->
-    # expect($scope.items).toEqual 'ad'
+  it 'should request the spreadsheet', ->
+    expect(spreadsheet.get).toHaveBeenCalled()
 
+  it 'should set the items', ->
+    scope.$digest()
+    expect(scope.items).toEqual response
