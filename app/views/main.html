@@ -1,17 +1,5 @@
 <h2>main view</h2>
 
-<div ng-bind="id"></div>
-
-<div ng-bind="items"></div>
-
-<!-- <div ng-bind="data"></div>
-
-<div ng-repeat="(d,b) in data track by $index">
-  <p>{{d}} {{b}}</p>
-</div>
-
- -->
-
-<div ng-repeat="(d,b) in items track by $index">
-  <p>{{d}} {{b}}</p>
+<div ng-repeat="(question,answer) in items track by $index">
+  <question question="question" answer="answer"></question>
 </div>

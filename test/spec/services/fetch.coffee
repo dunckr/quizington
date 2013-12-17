@@ -1,7 +1,7 @@
 describe 'Service: Fetch', ->
-  beforeEach module 'quizingtonApp'
   fetch = $http = null
 
+  beforeEach module 'quizingtonApp'
   beforeEach inject (_Fetch_,_$http_,_$q_) ->
     $q = _$q_
     $http = _$http_

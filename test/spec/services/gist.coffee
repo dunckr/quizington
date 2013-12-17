@@ -1,6 +1,7 @@
 describe 'Service: Gist', ->
-  beforeEach module 'quizingtonApp'
   gist = File = null
+
+  beforeEach module 'quizingtonApp'
   beforeEach inject (_gist_,_File_) ->
     File = _File_
     gist = _gist_

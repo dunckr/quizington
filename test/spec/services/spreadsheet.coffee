@@ -1,6 +1,7 @@
 describe 'Service: Spreadsheet', ->
-  beforeEach module 'quizingtonApp'
   spreadsheet = null
+
+  beforeEach module 'quizingtonApp'
   beforeEach inject (_spreadsheet_,_$http_,_$q_) ->
     $q = _$q_
     deferred = $q.defer()

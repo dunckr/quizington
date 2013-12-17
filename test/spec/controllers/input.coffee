@@ -1,4 +1,4 @@
-ddescribe 'Controller: InputCtrl', ->
+describe 'Controller: InputCtrl', ->
   inputCtrl = scope = $location = null
 
   beforeEach module 'quizingtonApp'
