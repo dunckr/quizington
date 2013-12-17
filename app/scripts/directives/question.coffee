@@ -5,8 +5,8 @@ angular.module('quizingtonApp')
       question: '='
       answer: '='
     template: '
-      <div ng-bind="question"></div>
-      <div ng-bind="answer" ng-show="clicked"></div>
+      <div ng-bind="question" class="question"></div>
+      <div ng-bind="answer" ng-show="clicked" class="answer"></div>
     '
     link: ($scope, element, attrs) ->
         element.bind 'click', (event) =>
