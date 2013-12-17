@@ -4,7 +4,6 @@ angular.module('quizingtonApp')
     scope:
       question: '='
       answer: '='
-      # clicked: '='
     template: '
       <div ng-bind="question"></div>
       <div ng-bind="answer" ng-show="clicked"></div>
@@ -12,3 +11,4 @@ angular.module('quizingtonApp')
     link: ($scope, element, attrs) ->
         element.bind 'click', (event) =>
           $scope.clicked = true
+          $scope.$apply()
