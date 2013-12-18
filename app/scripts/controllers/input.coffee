@@ -9,20 +9,20 @@ class InputCtrl
       @$location.path @constructPath @$scope.url
 
   constructPath: (url) ->
-    return @isDoc url if /key=/.test url
-    return @isGist url if /gist/.test url
+    return @_isDoc url if /key=/.test url
+    return @_isGist url if /gist/.test url
     "doc/#{url}"
 
-  isDoc: (url) ->
-    "doc/#{@parseDocId(url)}"
+  _isDoc: (url) ->
+    "doc/#{@_parseDocId(url)}"
 
-  parseDocId: (url) ->
+  _parseDocId: (url) ->
     url.match('key=(.*)&')[1]
 
-  isGist: (url) ->
-    "gist/#{@parseGistId(url)}"
+  _isGist: (url) ->
+    "gist/#{@_parseGistId(url)}"
 
-  parseGistId: (url) ->
+  _parseGistId: (url) ->
     url.split('/')[4]
 
 angular.module('quizingtonApp')
