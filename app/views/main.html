@@ -1,5 +1,16 @@
-<h2>Questions:</h2>
+<div class="page-header">
+    <h1>Quizington</h1>
+    <h2>Questions:</h2>
+    <span>(click for answers)</span>
+</div>
 
-<div ng-repeat="(question,answer) in items track by $index">
-  <question question="question" answer="answer"></question>
+<section>
+  <div class="row">
+    <div class="col-12" ng-repeat="(question,answer) in items track by $index">
+      <question question="question" answer="answer"></question>
+    </div>
+</section>
+
+<div class="footer pull-right">
+  <p><a href="http://dunckr.com">❤ dunckr</a></p>
 </div>
