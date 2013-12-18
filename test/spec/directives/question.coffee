@@ -13,13 +13,13 @@ describe 'Directive: question', ->
     $rootScope.$digest()
 
   it 'should display the question', ->
-    expect(element.find('div').html()).toEqual scope.question
+    expect(element.find('h3').html()).toEqual scope.question
 
   it 'should render the answer', ->
-    expect(element.find('div').eq(1).html()).toEqual scope.answer
+    expect(element.find('div').eq(2).html()).toEqual scope.answer
 
   it 'should not display the answer', ->
-    expect(element.find('div').eq(1).hasClass('ng-hide')).toBe true
+    expect(element.find('div').eq(2).hasClass('ng-hide')).toBe true
 
   it 'should diplay the answer on click', ->
     element.triggerHandler 'click'
